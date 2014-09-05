@@ -60,7 +60,13 @@ describe User do
 
     it { should_not be_valid }
   end
+  describe "when email address has two dots" do
+    before do
+       @user.email='asd@asd..com'
+    end
 
+    it { should_not be_valid }
+  end
   describe "when object saved" do
     before do
       #@user.email =
