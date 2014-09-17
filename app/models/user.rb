@@ -5,10 +5,7 @@ class User < ActiveRecord::Base
             uniqueness: {case_sensitive: false}
 
   before_save { email.downcase! }
-  def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
-  end
+
 
   has_secure_password
   validates :password, length: { minimum: 6 }

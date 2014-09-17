@@ -12,9 +12,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 
 gem 'rails', '4.0.8'
 
-gem 'pg', '0.15.1'
+
 group :development, :test do
-//##gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
 gem 'guard-rspec', '2.5.0'
 
@@ -23,9 +22,14 @@ gem 'guard-spork', '1.5.0'
 gem 'childprocess', '0.3.6'
 
 end
+group :production,:development do
+  gem 'pg', '0.15.1'
+end
 
 group :test do
-  gem 'selenium-webdriver', '2.35.1'
+  gem 'sqlite3', '1.3.8'
+
+  # gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', '2.1.0'
 
   # Uncomment this line on OS X.

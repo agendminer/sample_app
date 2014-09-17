@@ -15,6 +15,7 @@ module SessionsHelper
                                   User.digest(User.new_remember_token))
     cookies.delete(:remember_token)
     self.current_user = nil
+    reset_return_to
   end
 
   def current_user=(user)
@@ -33,6 +34,10 @@ module SessionsHelper
 
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
+    reset_return_to
+  end
+
+  def reset_return_to
     session.delete(:return_to)
   end
 
